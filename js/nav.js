@@ -14,11 +14,9 @@ function showPoetry(id) {
     });
 
     let tip = "";
-    if (tips.length === 1) {
-      tip = tips[0]
-    } else {
-      tip = `${tips[0]}<br>${tips[1]}`;
-    }
+    tips.forEach(element => {
+      tip += `${element}<br>`;
+    });
 
     $('#title').text(title);
     $('#content').html(content);
