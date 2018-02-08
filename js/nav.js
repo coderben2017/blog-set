@@ -5,7 +5,7 @@ function goToCover() {
 }
 
 function showPoetry(id) {
-  const {title, contents, tips} = poetries[id - 1];
+  const {title, contents, tips} = poetries[id];
 
   let content = '';
   contents.forEach(element => {
@@ -48,6 +48,19 @@ $(function () {
   $('[data-toggle="offcanvas"]').click(function () {
     $('#wrapper').toggleClass('toggled');
   });
+
+  let poetryMenuHtml = '';
+  poetries.forEach((element, index) => {
+    if (index !== 26) {
+      poetryMenuHtml += 
+      `<li>
+        <a href=\"javascript:;\" onclick=\"showPoetry(${index})\" style=\"background-color: #333\">
+          ${element.title}
+        </a>
+      </li>`;
+    }
+  });
+  $('#menu-poetry').html(poetryMenuHtml);
 
   goToCover();
 });
