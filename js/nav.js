@@ -19,13 +19,18 @@ function showContent(id, type) {
 
   $('#title').text(title);
   $('#content').html(content);
+  $('#tip').html(tip).show();
+  
   if(type === 'article') {
     $('#content').css({
       'text-align': 'left',
       'text-indent': '25px'
     });
+  } else {
+    $('#content').css({
+      'text-align': 'center'
+    });
   }
-  $('#tip').html(tip).show();
   
   setTimeout(function() {
     if(type === 'poetry') {
